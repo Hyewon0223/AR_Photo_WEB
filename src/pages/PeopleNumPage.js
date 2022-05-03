@@ -10,7 +10,9 @@ export const PeopleNumPage = () => {
 
     const onBoxClick = (num) => {
         setSelectNum(num);
-        navigate("/NumOfPrintPhoto");
+        setTimeout(function () {
+            navigate("/NumOfPrintPhoto");
+        }, 500);
     }
 
     return <>
@@ -31,6 +33,7 @@ export const PeopleNumPage = () => {
 export default PeopleNumPage;
 
 export const ChildrenTitle = styled.div`
+  margin-top: ${props=>props.mt || "110px"};
   font-family: 'Pretendard', sans-serif;
   font-weight: 700;
   font-size: 50px;

@@ -3,9 +3,9 @@ import {useEffect, useRef, useState} from "react";
 import BaseButton from "./BaseButton";
 
 export const BaseElement = ({isTimer, onBackClick, etc, onEtcClick, children}) => {
-    const [min, setMin] = useState(5);
-    const [sec, setSec] = useState(10);
-    const time = useRef(310);
+    const [min, setMin] = useState(4);
+    const [sec, setSec] = useState(59);
+    const time = useRef(299);
     const timerID = useRef(null);
 
     useEffect(()=>{
@@ -66,7 +66,7 @@ const Wrapper = styled.div`
   height: calc(100vh - 190px);
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  //justify-content: center;
   align-items: center;
 `
 const Footer = styled.div`
