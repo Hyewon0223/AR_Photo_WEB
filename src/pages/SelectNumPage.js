@@ -9,8 +9,13 @@ export const SelectNumPage = () => {
     const [selectNum, setSelectNum] = useState(2);
     const navigate = useNavigate();
 
+    const onBoxClick = (num) => {
+        setSelectNum(num);
+        navigate("/SelectPayment")
+    }
+
     return <>
-        <BaseElement isTimer onBackClick={()=>navigate("/NumOfPrintPhoto")} etc={selectNum && "다음"} onEtcClick={()=>selectNum && navigate("/SelectPayment")}>
+        <BaseElement isTimer onBackClick={()=>navigate("/NumOfPrintPhoto")}>
             <ChildrenTitle>사진은 총 몇개의 컷으로 구성할까요??</ChildrenTitle>
             <ChildrenSubTitle>하나의 사진이 {selectNum}개의 컷으로 구성됩니다</ChildrenSubTitle>
             <Wrapper>
@@ -19,7 +24,7 @@ export const SelectNumPage = () => {
                     {[1,2,3,4,5,6].map((num)=> {
                         return <SelectBox key={`peopleNum-${num}`}
                                           selectNum={selectNum} name={num} unit="장"
-                                          onClick={()=>setSelectNum(num)}/>
+                                          onClick={()=>onBoxClick(num)}/>
                     })}
                 </SelectGridWrapper>
             </Wrapper>

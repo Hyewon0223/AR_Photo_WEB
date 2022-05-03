@@ -8,15 +8,20 @@ export const PrintNumPage = () => {
     const [selectNum, setSelectNum] = useState(2);
     const navigate = useNavigate();
 
+    const onBoxClick = (num) => {
+        setSelectNum(num);
+        navigate("/NumOfSelectPhoto");
+    }
+
     return <>
-        <BaseElement isTimer onBackClick={()=>navigate("/NumOfPeople")} etc={selectNum && "다음"} onEtcClick={()=>selectNum && navigate("/NumOfSelectPhoto")}>
+        <BaseElement isTimer onBackClick={()=>navigate("/NumOfPeople")}>
             <ChildrenTitle>사진은 총 몇장 출력할까요?</ChildrenTitle>
             <ChildrenSubTitle>같은 사진이 총 {selectNum}장 선택됩니다.</ChildrenSubTitle>
             <SelectWrapper>
                 {[1,2,3,4,5].map((num)=> {
                     return <SelectBox key={`printNum-${num}`}
                                       selectNum={selectNum} name={num} unit="장"
-                                      onClick={()=>setSelectNum(num)}/>
+                                      onClick={()=>onBoxClick(num)}/>
                 })}
             </SelectWrapper>
         </BaseElement>

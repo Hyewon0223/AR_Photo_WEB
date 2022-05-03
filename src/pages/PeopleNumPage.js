@@ -8,15 +8,20 @@ export const PeopleNumPage = () => {
     const [selectNum, setSelectNum] = useState();
     const navigate = useNavigate();
 
+    const onBoxClick = (num) => {
+        setSelectNum(num);
+        navigate("/NumOfPrintPhoto");
+    }
+
     return <>
-        <BaseElement isTimer onBackClick={()=>navigate("/")} etc={selectNum && "다음"} onEtcClick={()=>selectNum && navigate("/NumOfPrintPhoto")}>
+        <BaseElement isTimer onBackClick={()=>navigate("/")}>
             <ChildrenTitle>몇명이 찍나요?</ChildrenTitle>
             <ChildrenSubTitle>인원수를 말해주세요</ChildrenSubTitle>
             <SelectWrapper>
                 {[1,2,3,4,5].map((num)=> {
                     return <SelectBox key={`peopleNum-${num}`}
                                       selectNum={selectNum} name={num} unit="명"
-                                      onClick={()=>setSelectNum(num)}/>
+                                      onClick={()=>onBoxClick(num)}/>
                 })}
             </SelectWrapper>
         </BaseElement>

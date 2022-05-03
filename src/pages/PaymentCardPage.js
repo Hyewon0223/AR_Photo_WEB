@@ -8,7 +8,7 @@ export const PaymentCardPage = () => {
     const [money, setMoney] = useState(4000);
     const navigate = useNavigate();
 
-    return <Container onClick={()=>navigate('/')}>
+    return <div onClick={()=>navigate('/')}>
         <BaseElement isTimer onBackClick={()=>navigate("/NumOfSelectPhoto")}>
             <ChildrenTitle>카드를 하단에 투입해주세요</ChildrenTitle>
             <ChildrenSubTitle>불빛이 나는 곳에 넣어주세요</ChildrenSubTitle>
@@ -17,14 +17,11 @@ export const PaymentCardPage = () => {
                 <Text>원이 결제됩니다.</Text>
             </Wrapper>
         </BaseElement>
-    </Container>
+    </div>
 }
 
 export default PaymentCardPage;
 
-const Container = styled.div`
-
-`
 const Wrapper = styled.div`
 
 `
