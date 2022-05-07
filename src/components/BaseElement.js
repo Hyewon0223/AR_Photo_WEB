@@ -1,10 +1,13 @@
 import styled from "styled-components";
 import {useEffect, useRef, useState} from "react";
 import BaseButton from "./BaseButton";
+import CheckImg from "../assets/CheckBox.svg";
+// const label = { inputProps: { 'aria-label': 'Checkbox demo' } };
 
-export const BaseElement = ({isTimer, onBackClick, etc, onEtcClick, children}) => {
+export const BaseElement = ({isTimer, onBackClick, etc, onEtcClick, children, isCheck}) => {
     const [min, setMin] = useState(4);
     const [sec, setSec] = useState(59);
+    const [checkSave, setCheckSave] = useState(false);
     const time = useRef(299);
     const timerID = useRef(null);
 
@@ -27,10 +30,14 @@ export const BaseElement = ({isTimer, onBackClick, etc, onEtcClick, children}) =
         }
     },[sec]);
 
+    const onCheckChange = (e) => {
+        setCheckSave(!e.target.checked);
+    }
+
     return <Container>
         <Header>
-            <Text>AR PHOTO</Text>
-            {isTimer && <Text>{min}:{sec}</Text>}
+            <div>AR PHOTO</div>
+            {isTimer && <div>{min}:{sec}</div>}
         </Header>
         <Wrapper>
             {children}
@@ -38,6 +45,14 @@ export const BaseElement = ({isTimer, onBackClick, etc, onEtcClick, children}) =
         <Footer>
             {onBackClick && <BaseButton name="이전" onClick={onBackClick}/>}
             {etc && <BaseButton name={etc} onClick={onEtcClick}/>}
+            {isCheck &&
+                <CheckWrapper>
+                    <CheckBox type="checkbox" imgUrl={CheckImg}
+                              value={checkSave} onChange={(event)=>onCheckChange(event)}
+                    />
+                    <div>촬영 후에 자동으로 어플에도 저장됩니다.</div>
+                </CheckWrapper>
+            }
         </Footer>
     </Container>
 }
@@ -59,18 +74,43 @@ const Header = styled.div`
   line-height: 41px;
   color: #000000;
 `
-const Text = styled.div`
-
-`
 const Wrapper = styled.div`
   height: calc(100vh - 190px);
   display: flex;
   flex-direction: column;
-  //justify-content: center;
   align-items: center;
 `
 const Footer = styled.div`
   height: 70px;
   display: flex;
   justify-content: space-between;
+`
+const CheckWrapper = styled.label`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: 'Pretendard', sans-serif;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 40px;
+  line-height: 48px;
+  color: #7C7C7C;
+  gap: 12px;
+`
+const CheckBox = styled.input`
+  appearance: none;
+  border: 1.5px solid #7D7D7D;
+  border-radius: 12px;
+  width: 64px;
+  height: 64px;
+  &:checked {
+    border-color: transparent;
+    background-image: url(${props=>props.imgUrl});
+    background-size: 80% 80%;
+    background-position: 50%;
+    background-repeat: no-repeat;
+    background-color: #7D7D7D;
+  }
+
+\` ;
 `
