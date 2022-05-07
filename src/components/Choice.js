@@ -10,6 +10,7 @@ const Container = styled.div`
   background: #DCDCDC;
   border-radius: 36px;
   width: 100%;
+  max-width: 474px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -26,4 +27,6 @@ const Text = styled.div`
   font-size: 50px;
   line-height: 60px;
   color: #2C2C2C;
+  white-space: pre-line;
+  text-align: center;
 `
