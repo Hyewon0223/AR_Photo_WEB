@@ -15,6 +15,7 @@ const Container = styled.div`
   justify-content: center;
   align-items: center;
   cursor: pointer;
+  margin: auto;
   &:after{
     content: "";
     display: block;

@@ -39,10 +39,10 @@ export const BaseElement = ({isTimer, onBackClick, etc, onEtcClick, children, is
             <div>AR PHOTO</div>
             {isTimer && <div>{min}:{sec}</div>}
         </Header>
-        <Wrapper>
+        <Wrapper isExist={onBackClick || etc || isCheck}>
             {children}
         </Wrapper>
-        <Footer>
+        <Footer isExist={onBackClick || etc || isCheck}>
             {onBackClick && <BaseButton name="이전" onClick={onBackClick}/>}
             {etc && <BaseButton name={etc} onClick={onEtcClick}/>}
             {isCheck &&
@@ -66,7 +66,6 @@ const Header = styled.div`
   height: 40px;
   display: flex;
   justify-content: space-between;
-  
   font-family: 'Pretendard', sans-serif;
   font-style: normal;
   font-weight: 700;
@@ -75,13 +74,13 @@ const Header = styled.div`
   color: #000000;
 `
 const Wrapper = styled.div`
-  height: calc(100vh - 190px);
+  height: ${props=>props.isExist? "calc(100vh - 190px)" : "calc(100vh - 120px)"};
   display: flex;
   flex-direction: column;
   align-items: center;
 `
 const Footer = styled.div`
-  height: 70px;
+  height: ${props=>props.isExist && "70px"};
   display: flex;
   justify-content: space-between;
 `
@@ -111,6 +110,5 @@ const CheckBox = styled.input`
     background-repeat: no-repeat;
     background-color: #7D7D7D;
   }
-
-\` ;
+\` 
 `
