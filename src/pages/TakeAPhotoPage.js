@@ -6,22 +6,21 @@ import styled from "styled-components";
 import BaseButton from "../components/BaseButton";
 
 export const TakeAPhotoPage = () => {
-    const photoSec = 3;
+    const photoSec = 5;
     const navigate = useNavigate();
     const camera = useRef(null);
     const [image, setImage] = useState([]);
-    const [cnt, setCnt] = useState(0);
+    const [cnt, setCnt] = useState(1);
     const [sec, setSec] = useState(photoSec);
     const photoTime = useRef(photoSec);
     const photoTimerID = useRef(null);
-    console.log(image);
     useEffect(() => {
         photoTimerID.current = setInterval(() => {
+            if (cnt > 3) return;
             const second = photoTime.current;
             if (second < 10) setSec(`0${second}`);
             else setSec(second);
             photoTime.current -= 1;
-            console.log(photoTime);
         }, 1000);
         return () => clearInterval(photoTimerID.current);
     }, []);
@@ -31,18 +30,13 @@ export const TakeAPhotoPage = () => {
         if (photoTime.current <= 0) {
             setImage([...image,camera.current.takePhoto()]);
             setCnt(cnt + 1);
-            console.log("제한 시간 종료");
-            console.log(image.length);
-            if (cnt < 3) {
-                setInterval(()=> photoSec);
+            if (cnt < 4) {
                 photoTime.current = photoSec;
                 setSec(photoSec);
             }
             else {
-                clearInterval(photoTimerID.current);
-                navigate('/result', {state: image});
+                navigate('/result', {state: [...image,camera.current.takePhoto()]});
             }
-
         }
     }, [sec, cnt, image, navigate]);
 
@@ -51,9 +45,7 @@ export const TakeAPhotoPage = () => {
             <CameraWrapper>
                 <Camera ref={camera} aspectRatio={16 / 8}/>
             </CameraWrapper>
-            {/*<button onClick={() => setImage(camera.current.takePhoto())}>Take photo</button>*/}
-            {/*<img src={image} alt='Taken photo'/>*/}
-            <BaseButton name={`4컷중 ${cnt+1}번째`}/>
+            <BaseButton name={`4컷중 ${cnt}번째`}/>
         </BaseElement>
     </>
 }

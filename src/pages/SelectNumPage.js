@@ -23,12 +23,12 @@ export const SelectNumPage = () => {
             <ChildrenSubTitle>결제금액은 4000원 입니다.</ChildrenSubTitle>
             <SelectWrap>
                 {[1,2,3,4,6,8].map((num)=>{
-                    return <Select isSelect={selectNum===num} onClick={()=>setSelectNum(num)}>{num}컷</Select>
+                    return <Select key={`selectNumPrint-${num}`} isSelect={selectNum===num} onClick={()=>setSelectNum(num)}>{num}컷</Select>
                 })}
             </SelectWrap>
             <SelectLayoutWrap>
                 {[1,2,3,4].map((num)=>{
-                    return <LayoutContainer>
+                    return <LayoutContainer key={`selectLayout-${num}`} >
                         <Layout isLayout={selectLayout===num} onClick={()=>onLayoutClick(num)}/>
                         {selectLayout === num ?
                                 <SelectLayout imgUrl={check}>

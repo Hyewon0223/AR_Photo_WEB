@@ -1,8 +1,8 @@
 import styled from "styled-components";
 
-export const BaseButton = ({name, onClick}) => {
-    return <Container onClick={onClick}>
-        <Text>{name}</Text>
+export const BaseButton = ({dark, name, onClick}) => {
+    return <Container dark={dark} onClick={onClick}>
+        <Text dark={dark}>{name}</Text>
     </Container>
 }
 
@@ -11,7 +11,7 @@ export default BaseButton
 const Container = styled.div`
   padding: 0 35px;
   height: 70px;
-  background: #F5F5F5;
+  background: ${props=>props.dark? "#A3A3A3": "#F5F5F5"};
   border-radius: 18px;
   display: flex;
   justify-content: center;
@@ -24,5 +24,5 @@ const Text = styled.div`
   font-weight: 700;
   font-size: 36.4583px;
   line-height: 44px;
-  color: #676767;
+  color: ${props=>props.dark? "#FFFFFF":"#676767"};
 `
