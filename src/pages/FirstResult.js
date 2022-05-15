@@ -1,4 +1,4 @@
-import {useLocation} from "react-router-dom";
+import {useLocation, useNavigate} from "react-router-dom";
 import BaseElement from "../components/BaseElement";
 import {ChildrenSubTitle, ChildrenTitle} from "./PeopleNumPage";
 import styled from "styled-components";
@@ -6,6 +6,7 @@ import BaseButton from "../components/BaseButton";
 
 export const FirstResult = () => {
     const location = useLocation();
+    const navigate = useNavigate();
     console.log(location);
     return <>
         <BaseElement>
@@ -17,7 +18,7 @@ export const FirstResult = () => {
                 })}
             </Wrapper>
             <ButtonContainer>
-                <BaseButton name="한 번 다시 촬영 하기" onClick={()=>console.log("재촬영")}/>
+                <BaseButton name="한 번 다시 촬영 하기" onClick={()=>navigate('/Camera', {state:location.state})}/>
                 <BaseButton dark name="프레임 선택하러 가기" onClick={()=>console.log("프레임 선택")}/>
             </ButtonContainer>
         </BaseElement>

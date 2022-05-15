@@ -1,4 +1,4 @@
-import {useNavigate} from "react-router-dom";
+import {useLocation, useNavigate} from "react-router-dom";
 import React, {useState, useRef, useEffect} from "react";
 import {Camera} from "react-camera-pro";
 import BaseElement from "../components/BaseElement";
@@ -6,6 +6,7 @@ import styled from "styled-components";
 import BaseButton from "../components/BaseButton";
 
 export const TakeAPhotoPage = () => {
+    const location = useLocation();
     const photoSec = 5;
     const navigate = useNavigate();
     const camera = useRef(null);
@@ -15,8 +16,9 @@ export const TakeAPhotoPage = () => {
     const photoTime = useRef(photoSec);
     const photoTimerID = useRef(null);
     useEffect(() => {
+        if (location.state != null) setImage(location.state);
         photoTimerID.current = setInterval(() => {
-            if (cnt > 3) return;
+            // if (cnt > 3) return;
             const second = photoTime.current;
             if (second < 10) setSec(`0${second}`);
             else setSec(second);
@@ -35,7 +37,12 @@ export const TakeAPhotoPage = () => {
                 setSec(photoSec);
             }
             else {
-                navigate('/result', {state: [...image,camera.current.takePhoto()]});
+                if (image.length <= 4) {
+                    navigate('/result', {state: [...image, camera.current.takePhoto()]});
+                }
+                else {
+                    navigate('/reResult', {state: [...image, camera.current.takePhoto()]});
+                }
             }
         }
     }, [sec, cnt, image, navigate]);
@@ -51,6 +58,7 @@ export const TakeAPhotoPage = () => {
 }
 
 const CameraWrapper = styled.div`
-  margin: auto;
+  //margin: auto auto 25px;
   width: 100%;
+  margin: auto;
 `

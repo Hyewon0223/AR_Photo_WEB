@@ -11,6 +11,7 @@ import {GetQRPage} from "./pages/GetQRPage";
 import {ChooseARPage} from "./pages/ChooseARPage";
 import {TakeAPhotoPage} from "./pages/TakeAPhotoPage";
 import FirstResult from "./pages/FirstResult";
+import ReResult from "./pages/ReResult";
 
 function App(){
   return (
@@ -28,6 +29,7 @@ function App(){
           <Route path="/SelectAR/Choose" element={<ChooseARPage/>}/>
           <Route path="/Camera" element={<TakeAPhotoPage/>}/>
           <Route path="/Result" element={<FirstResult/>}/>
+          <Route path="/ReResult" element={<ReResult/>}/>
       </Routes>
     </BrowserRouter>
   );
