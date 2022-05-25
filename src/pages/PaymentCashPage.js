@@ -21,7 +21,7 @@ export const PaymentCashPage = () => {
     return <div>
         <BaseElement isTimer onBackClick={()=>navigate("/SelectPayment")}>
             <ChildrenTitle>현금을 하단에 투입해주세요</ChildrenTitle>
-            <ChildrenSubTitle>불빛이 나는 곳에 넣어주세요</ChildrenSubTitle>
+            <ChildrenSubTitle/>
             <Container>
                 <Wrapper>
                     <MoneyBox isWhite>{submit}</MoneyBox>
@@ -56,22 +56,23 @@ const MoneyBox = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 315px;
-  height: 183px;
-  background: ${props=>props.isWhite? "#F5F5F5": "#656565"};
+  width: 412px;
+  height: 209px;
+  background: ${props=>props.isWhite? "linear-gradient(196.1deg, rgba(255, 255, 255, 0.61) -15.99%, rgba(255, 255, 255, 0.352657) 101.75%, rgba(255, 255, 255, 0) 142.09%), linear-gradient(80.77deg, #FBFBFD 27.85%, rgba(251, 251, 253, 0) 91.1%)": "#7798C9"};
+  border: 5px solid ${props=>props.isWhite?"#FFFFFF":"#7798C9"};
   border-radius: 28px;
-  font-family: 'Pretendard', sans-serif;
-  font-weight: 700;
-  font-size: 80px;
-  line-height: 96px;
-  color: ${props=>props.isWhite? "#696969": "#ffffff"};
+  font-family: 'ONE Mobile POP', sans-serif;
+  font-weight: 400;
+  font-size: 104px;
+  line-height: 114px;
+  color: ${props=>props.isWhite? "#7798C9": "#ffffff"};
   cursor: pointer;
 `
 const Text = styled.div`
-  font-family: 'Pretendard', sans-serif;
-  font-weight: 700;
-  font-size: 62px;
-  line-height: 74px;
-  color: #2C2C2C;
+  font-family: 'ONE Mobile POP', sans-serif;
+  font-weight: 400;
+  font-size: 60px;
+  line-height: 66px;
+  color: #000000;
 
 `

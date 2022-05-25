@@ -28,7 +28,7 @@ export const QRScanner = ({qrScan, setQrScan}) => {
 export default QRScanner
 
 const QRReaderWrapper = styled(QrReader)`
-  width: 430px;
-  height: 430px;
+  width: 50%;
   margin: auto;
+  border-radius: 50px;
 `

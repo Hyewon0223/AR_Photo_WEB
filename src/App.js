@@ -12,6 +12,7 @@ import {ChooseARPage} from "./pages/ChooseARPage";
 import {TakeAPhotoPage} from "./pages/TakeAPhotoPage";
 import FirstResult from "./pages/FirstResult";
 import ReResult from "./pages/ReResult";
+import "./assets/font/font.css"
 
 function App(){
   return (

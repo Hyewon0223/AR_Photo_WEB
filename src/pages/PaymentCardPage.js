@@ -39,22 +39,25 @@ const MoneyBox = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 408px;
-  height: 237px;
-  background: #656565;
-  border-radius: 36px;
-  font-family: 'Pretendard', sans-serif;
-  font-weight: 700;
+  width: 412px;
+  height: 209px;
+  background: #7798C9;
+  border: 5px solid #678AC0;
+  border-radius: 50px;
+  font-family: 'ONE Mobile POP',sans-serif;
+  font-style: normal;
+  font-weight: 400;
   font-size: 104px;
-  line-height: 125px;
-  color: white;
+  line-height: 114px;
+  color: #FFFFFF;
   cursor: pointer;
 `
 const Text = styled.div`
-  font-family: 'Pretendard', sans-serif;
-  font-weight: 700;
+  font-family: 'ONE Mobile POP',sans-serif;
+  font-style: normal;
+  font-weight: 400;
   font-size: 80px;
-  line-height: 96px;
+  line-height: 88px;
   color: #2C2C2C;
 
 `

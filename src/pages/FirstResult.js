@@ -18,8 +18,8 @@ export const FirstResult = () => {
                 })}
             </Wrapper>
             <ButtonContainer>
-                <BaseButton name="한 번 다시 촬영 하기" onClick={()=>navigate('/Camera', {state:location.state})}/>
-                <BaseButton dark name="프레임 선택하러 가기" onClick={()=>console.log("프레임 선택")}/>
+                <BaseButton font name="한 번 다시 촬영 하기" onClick={()=>navigate('/Camera', {state:location.state})}/>
+                <BaseButton font dark name="프레임 선택하러 가기" onClick={()=>console.log("프레임 선택")}/>
             </ButtonContainer>
         </BaseElement>
     </>
@@ -33,7 +33,7 @@ const Wrapper = styled.div`
   align-items: center;
   margin: auto;
   gap: 46px;
-  width: 100%;
+  width: 90%;
 `
 const ResultImg = styled.div`
   width: 100%;

@@ -2,6 +2,7 @@ import styled from "styled-components";
 import {useEffect, useRef, useState} from "react";
 import BaseButton from "./BaseButton";
 import CheckImg from "../assets/CheckBox.svg";
+import PhotoBubble from "../assets/PHOTOBUBBLE.png";
 // const label = { inputProps: { 'aria-label': 'Checkbox demo' } };
 
 export const BaseElement = ({isTimer, onBackClick, etc, onEtcClick, children, isCheck}) => {
@@ -36,15 +37,15 @@ export const BaseElement = ({isTimer, onBackClick, etc, onEtcClick, children, is
 
     return <Container>
         <Header>
-            <div>AR PHOTO</div>
-            {isTimer && <div>{min}:{sec}</div>}
+            <Logo imgURL={PhotoBubble}/>
+            {isTimer && <BaseButton font name={`남은 시간 ${min}:${sec}`}></BaseButton>}
         </Header>
         <Wrapper isExist={onBackClick || etc || isCheck}>
             {children}
         </Wrapper>
         <Footer isExist={onBackClick || etc || isCheck}>
             {onBackClick && <BaseButton name="이전" onClick={onBackClick}/>}
-            {etc && <BaseButton name={etc} onClick={onEtcClick}/>}
+            {etc && <><div/><BaseButton name={etc} onClick={onEtcClick}/></>}
             {isCheck &&
                 <CheckWrapper>
                     <CheckBox type="checkbox" imgUrl={CheckImg}
@@ -60,18 +61,27 @@ export const BaseElement = ({isTimer, onBackClick, etc, onEtcClick, children, is
 export default BaseElement;
 
 const Container = styled.div`
-  margin: 39px 40px 40px 40px;
+  padding: 39px 40px 40px 40px;
+  background: linear-gradient(198.19deg, rgba(212, 217, 255, 0.81) 3.45%, rgba(232, 236, 255, 0.81) 28.13%, rgba(145, 183, 255, 0.81) 75.96%), linear-gradient(180deg, rgba(229, 241, 255, 0.2) 0%, rgba(221, 229, 250, 0.2) 100%), #E1E0E0;
+  background-blend-mode: overlay, normal, normal;
 `
-const Header = styled.div`
+export const Header = styled.div`
   height: 40px;
   display: flex;
   justify-content: space-between;
+  align-items: center;
   font-family: 'Pretendard', sans-serif;
   font-style: normal;
   font-weight: 700;
   font-size: 34.3007px;
   line-height: 41px;
   color: #000000;
+`
+export const Logo = styled.div`
+  width: 348px;
+  height: 35.16px;
+  background: url(${props=>props.imgURL}) no-repeat;
+  background-size: contain;
 `
 const Wrapper = styled.div`
   height: ${props=>props.isExist? "calc(100vh - 190px)" : "calc(100vh - 120px)"};
@@ -108,7 +118,7 @@ const CheckBox = styled.input`
     background-size: 80% 80%;
     background-position: 50%;
     background-repeat: no-repeat;
-    background-color: #7D7D7D;
+    background-color: #678AC0;
   }
 \` 
 `

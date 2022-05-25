@@ -1,8 +1,9 @@
 import {useLocation, useNavigate} from "react-router-dom";
 import BaseElement from "../components/BaseElement";
-import {ChildrenSubTitle, ChildrenTitle} from "./PeopleNumPage";
+import {ChildrenSubTitle, ChildrenTitle, RelativeContainer, SelectCheck} from "./PeopleNumPage";
 import styled from "styled-components";
 import {useState} from "react";
+import check from "../assets/Check.png";
 
 export const FirstResult = () => {
     const navigate = useNavigate();
@@ -10,18 +11,31 @@ export const FirstResult = () => {
     const [select, setSelect] = useState([]);
 
     const onImgClick = (idx) => {
-        setSelect([...select, idx])
+        if (select.length < 4) {
+            setSelect([...select, idx]);
+        }
     }
 
+    const onSelectClick = (idx) => {
+        if (select.indexOf(idx) !== -1) {
+            setSelect(select.filter((value, index) => value !== idx));
+        }
+    }
     return <>
-        <BaseElement onBackClick={()=>navigate('/')} etc="다음" onEtcClick={()=>navigate('/')}>
+        <BaseElement etc="다음" onEtcClick={()=>navigate('/')}>
             <ChildrenTitle mt="57px">출력할 사진을 선택하세요</ChildrenTitle>
-            <ChildrenSubTitle>선택 장수에 따라 프레임이 달라집니다.</ChildrenSubTitle>
+            <ChildrenSubTitle/>
             <Container>
                 <Layout/>
                 <Wrapper>
                     {location.state.map((imgUrl, idx)=>{
-                        return <ResultImg key={`photo-result-${imgUrl}`} imgSrc={imgUrl}/>
+                        return <RelativeContainer>
+                            <ResultImg key={`photo-result-${imgUrl}`} imgSrc={imgUrl} onClick={()=>onImgClick(idx)}/>
+                            {select.indexOf(idx) !== -1?
+                                <SelectImg onClick={()=>onSelectClick(idx)}>{select.indexOf(idx)+1}</SelectImg>
+                                : null
+                            }
+                        </RelativeContainer>
                     })}
                 </Wrapper>
             </Container>
@@ -40,12 +54,11 @@ const Container = styled.div`
   gap: 80px;
 `
 const Layout = styled.div`
-  //width: 272px;
-  //height : 410px;
   width: 35%;
-  height: 100%;
+  height: 90%;
   background: #C4C4C4;
   border-radius: 12px;
+  margin: auto;
 `
 const Wrapper = styled.div`
   display: grid;
@@ -57,8 +70,27 @@ const Wrapper = styled.div`
 `
 const ResultImg = styled.div`
   width: 100%;
-  padding-top: 100%;
+  padding-top: 120%;
   border-radius: 24px;
   background-size: cover;
   background-image: url(${props=>props.imgSrc});
+  cursor: pointer;
+`
+const SelectImg = styled.div`
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: rgba(119, 152, 201, 0.78);
+  border: 5px solid #678AC0;
+  border-radius: 24px;
+  font-family: 'ONE Mobile POP', sans-serif;
+  font-weight: 400;
+  font-size: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #FFFFFF;
+  cursor: pointer;
 `
