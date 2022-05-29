@@ -1,14 +1,18 @@
 import {useLocation, useNavigate} from "react-router-dom";
 import BaseElement from "../components/BaseElement";
-import {ChildrenSubTitle, ChildrenTitle, RelativeContainer, SelectCheck} from "./PeopleNumPage";
+import {ChildrenSubTitle, ChildrenTitle, RelativeContainer} from "./PeopleNumPage";
 import styled from "styled-components";
-import {useState} from "react";
-import check from "../assets/Check.png";
+import {useEffect, useState} from "react";
+import {Frame34} from "../components/Layout/Frame34";
 
 export const FirstResult = () => {
     const navigate = useNavigate();
     const location = useLocation();
     const [select, setSelect] = useState([]);
+
+    useEffect(()=>{
+
+    },[select])
 
     const onImgClick = (idx) => {
         if (select.length < 4) {
@@ -18,7 +22,7 @@ export const FirstResult = () => {
 
     const onSelectClick = (idx) => {
         if (select.indexOf(idx) !== -1) {
-            setSelect(select.filter((value, index) => value !== idx));
+            setSelect(select.filter((value) => value !== idx));
         }
     }
     return <>
@@ -26,7 +30,7 @@ export const FirstResult = () => {
             <ChildrenTitle mt="57px">출력할 사진을 선택하세요</ChildrenTitle>
             <ChildrenSubTitle/>
             <Container>
-                <Layout/>
+                <Frame34 cnt={3} imgArray={select}/>
                 <Wrapper>
                     {location.state.map((imgUrl, idx)=>{
                         return <RelativeContainer>
@@ -52,13 +56,6 @@ const Container = styled.div`
   width: 85%;
   margin: auto;
   gap: 80px;
-`
-const Layout = styled.div`
-  width: 35%;
-  height: 90%;
-  background: #C4C4C4;
-  border-radius: 12px;
-  margin: auto;
 `
 const Wrapper = styled.div`
   display: grid;
