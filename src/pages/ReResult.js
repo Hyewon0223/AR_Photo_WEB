@@ -14,26 +14,28 @@ export const FirstResult = () => {
 
     },[select])
 
-    const onImgClick = (img) => {
+    const onImgClick = (idx) => {
         if (select.length < 4) {
-            setSelect([...select, img]);
+            setSelect([...select, idx]);
         }
     }
 
-    const onSelectClick = (img) => {
-        if (select.indexOf(img) !== -1) {
-            setSelect(select.filter((value) => value !== img));
+    const onSelectClick = (idx) => {
+        if (select.indexOf(idx) !== -1) {
+            setSelect(select.filter((value) => value !== idx));
         }
     }
 
     const onNextClick = () => {
-        if (select.length === 4){
-            navigate('/SelectFrame', {state: []});
+        console.log(select);
+        if (select.length === 3){
+            localStorage.setItem("selectIdx",select);
+            navigate('/SelectFrame', {state: location.state});
         }
     }
 
     return <>
-        <BaseElement etc="다음" onEtcClick={()=>onNextClick}>
+        <BaseElement etc="다음" onEtcClick={onNextClick}>
             <ChildrenTitle mt="57px">출력할 사진을 선택하세요</ChildrenTitle>
             <ChildrenSubTitle/>
             <Container>
@@ -43,7 +45,7 @@ export const FirstResult = () => {
                         return <RelativeContainer>
                             <ResultImg key={`photo-result-${imgUrl}`} imgSrc={imgUrl} onClick={()=>onImgClick(idx)}/>
                             {select.indexOf(idx) !== -1?
-                                <SelectImg onClick={()=>onSelectClick(imgUrl)}>{select.indexOf(idx)+1}</SelectImg>
+                                <SelectImg onClick={()=>onSelectClick(idx)}>{select.indexOf(idx)+1}</SelectImg>
                                 : null
                             }
                         </RelativeContainer>
