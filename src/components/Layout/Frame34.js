@@ -3,8 +3,6 @@ import {useLocation} from "react-router-dom";
 
 export const Frame34 = ({cnt, imgArray}) => {
     const location = useLocation();
-    console.log(imgArray[0]);
-    console.log(location.state[imgArray[0]]);
     const [...number] = [...Array(cnt).keys()];
     return <Frame>
         <Layout>

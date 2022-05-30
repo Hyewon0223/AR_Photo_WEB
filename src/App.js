@@ -13,6 +13,8 @@ import {TakeAPhotoPage} from "./pages/TakeAPhotoPage";
 import FirstResult from "./pages/FirstResult";
 import ReResult from "./pages/ReResult";
 import "./assets/font/font.css"
+import {SelectFrame} from "./pages/SelectFrame";
+import {SelectFilter} from "./pages/SelectFilter";
 
 function App(){
   return (
@@ -31,6 +33,8 @@ function App(){
           <Route path="/Camera" element={<TakeAPhotoPage/>}/>
           <Route path="/Result" element={<FirstResult/>}/>
           <Route path="/ReResult" element={<ReResult/>}/>
+          <Route path="/SelectFrame" element={<SelectFrame/>}/>
+          <Route path="/SelectFilter" element={<SelectFilter/>}/>
       </Routes>
     </BrowserRouter>
   );

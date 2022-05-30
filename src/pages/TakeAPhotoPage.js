@@ -8,7 +8,7 @@ import PhotoBubble from "../assets/PHOTOBUBBLE.png";
 
 export const TakeAPhotoPage = () => {
     const location = useLocation();
-    const photoSec = 10;
+    const photoSec = 5;
     const navigate = useNavigate();
     const camera = useRef(null);
     const [image, setImage] = useState([]);
