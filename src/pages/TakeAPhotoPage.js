@@ -1,7 +1,7 @@
 import {useLocation, useNavigate} from "react-router-dom";
 import React, {useState, useRef, useEffect} from "react";
 import {Camera} from "react-camera-pro";
-import BaseElement, {Header, Logo} from "../components/BaseElement";
+import {Header, Logo} from "../components/BaseElement";
 import styled from "styled-components";
 import BaseButton from "../components/BaseButton";
 import PhotoBubble from "../assets/PHOTOBUBBLE.png";
@@ -25,7 +25,7 @@ export const TakeAPhotoPage = () => {
             photoTime.current -= 1;
         }, 1000);
         return () => clearInterval(photoTimerID.current);
-    }, []);
+    }, [location.state]);
 
     // 제한시간 종료시
     useEffect(() => {
@@ -50,11 +50,11 @@ export const TakeAPhotoPage = () => {
     return <Container>
         <Header>
             <Logo imgURL={PhotoBubble}/>
-            <BaseButton font name={`${sec}초`}></BaseButton>
+            <BaseButton font name={`${sec}초`}/>
         </Header>
         <CameraContainer>
             <CameraWrapper>
-                <Camera ref={camera} aspectRatio={4/5}/>
+                <Camera ref={camera} aspectRatio={4/5} errorMessages="error"/>
             </CameraWrapper>
             <ShowCnt>4컷중 {cnt}번째</ShowCnt>
         </CameraContainer>

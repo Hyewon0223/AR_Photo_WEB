@@ -15,6 +15,7 @@ import ReResult from "./pages/ReResult";
 import "./assets/font/font.css"
 import {SelectFrame} from "./pages/SelectFrame";
 import {SelectFilter} from "./pages/SelectFilter";
+import {Finish} from "./pages/Finish";
 
 function App(){
   return (
@@ -35,6 +36,7 @@ function App(){
           <Route path="/ReResult" element={<ReResult/>}/>
           <Route path="/SelectFrame" element={<SelectFrame/>}/>
           <Route path="/SelectFilter" element={<SelectFilter/>}/>
+          <Route path="/Finish" element={<Finish/>}/>
       </Routes>
     </BrowserRouter>
   );

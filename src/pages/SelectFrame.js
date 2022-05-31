@@ -71,10 +71,10 @@ const Container = styled.div`
   margin: auto;
   gap: 140px;
 `
-const SelectWrapper = styled.div`
+export const SelectWrapper = styled.div`
   width: 80%;
 `
-const CategoryContainer = styled.div`
+export const CategoryContainer = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
@@ -82,9 +82,9 @@ const CategoryContainer = styled.div`
   border-radius: 26px;
   width: 100%;
   height: 66px;
-  margin-bottom: 52px;
+  margin-bottom: ${props=>props.mb || "52px"};
 `
-const Category = styled.div`
+export const Category = styled.div`
   font-family: 'ONE Mobile POP', sans-serif;
   font-weight: 400;
   font-size: 32px;
@@ -100,7 +100,7 @@ const Category = styled.div`
   width: 33%;
   cursor: pointer;
 `
-const DetailContainer = styled.div`
+export const DetailContainer = styled.div`
   display: grid;
   grid-template-rows: auto auto;
   grid-template-columns: auto auto auto;
@@ -109,7 +109,7 @@ const DetailContainer = styled.div`
   row-gap: 50px;
   width: 100%;
 `
-const DetailBox = styled.div`
+export const DetailBox = styled.div`
   position: relative;
   background: ${props=>props.isActive? 'rgba(119, 152, 201, 0.78)' : "linear-gradient(196.1deg, rgba(255, 255, 255, 0.61) -15.99%, rgba(255, 255, 255, 0.352657) 101.75%, rgba(255, 255, 255, 0) 142.09%), linear-gradient(80.77deg, #FBFBFD 27.85%, rgba(251, 251, 253, 0) 91.1%)"};
   border: 5px solid ${props=>props.isActive?"#678AC0":"#FFFFFF"};
@@ -127,5 +127,4 @@ const DetailBox = styled.div`
   letter-spacing: 0.03em;
   color: #B7B7B7;
   cursor: pointer;
-
 `
