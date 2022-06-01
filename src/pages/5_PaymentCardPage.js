@@ -1,5 +1,5 @@
 
-import {ChildrenSubTitle, ChildrenTitle} from "./PeopleNumPage";
+import {ChildrenSubTitle, ChildrenTitle} from "./1_PeopleNumPage";
 import BaseElement from "../components/BaseElement";
 import {useNavigate} from "react-router-dom";
 import styled from "styled-components";

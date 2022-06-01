@@ -1,5 +1,5 @@
 import {useNavigate} from "react-router-dom";
-import {ChildrenSubTitle, ChildrenTitle} from "./PeopleNumPage";
+import {ChildrenSubTitle, ChildrenTitle} from "./1_PeopleNumPage";
 import BaseElement from "../components/BaseElement";
 import QRScanner from "../components/QRScanner";
 import {useEffect, useState} from "react";

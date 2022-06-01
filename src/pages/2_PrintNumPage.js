@@ -2,7 +2,7 @@ import BaseElement from "../components/BaseElement";
 import { useNavigate } from "react-router-dom";
 import {SelectBox} from "../components/SelectBox";
 import {useState} from "react";
-import {ChildrenTitle, ChildrenSubTitle, SelectWrapper, SelectCheck, RelativeContainer} from "./PeopleNumPage";
+import {ChildrenTitle, ChildrenSubTitle, SelectWrapper, SelectCheck, RelativeContainer} from "./1_PeopleNumPage";
 import check from "../assets/Check.png";
 
 export const PrintNumPage = () => {

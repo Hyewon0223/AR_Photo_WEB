@@ -1,6 +1,6 @@
 import {useLocation, useNavigate} from "react-router-dom";
 import BaseElement from "../components/BaseElement";
-import {ChildrenSubTitle, ChildrenTitle} from "./PeopleNumPage";
+import {ChildrenSubTitle, ChildrenTitle} from "./1_PeopleNumPage";
 import styled from "styled-components";
 import BaseButton from "../components/BaseButton";
 

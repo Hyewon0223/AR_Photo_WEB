@@ -1,11 +1,11 @@
 import BaseElement from "../components/BaseElement";
-import {ChildrenSubTitle, ChildrenTitle, SelectCheck} from "./PeopleNumPage";
+import {ChildrenSubTitle, ChildrenTitle, SelectCheck} from "./1_PeopleNumPage";
 import {Frame34} from "../components/Layout/Frame34";
 import check from "../assets/Check.png";
 import {useLocation, useNavigate} from "react-router-dom";
 import styled from "styled-components";
 import {useState} from "react";
-import {Category, CategoryContainer, DetailBox, DetailContainer, SelectWrapper} from "./SelectFrame";
+import {Category, CategoryContainer, DetailBox, DetailContainer, SelectWrapper} from "./11_SelectFrame";
 
 export const SelectFilter = () => {
     const location = useLocation();

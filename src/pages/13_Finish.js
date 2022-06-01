@@ -1,5 +1,5 @@
 import BaseElement from "../components/BaseElement";
-import {ChildrenSubTitle, ChildrenTitle} from "./PeopleNumPage";
+import {ChildrenSubTitle, ChildrenTitle} from "./1_PeopleNumPage";
 import {Frame34} from "../components/Layout/Frame34";
 import styled from "styled-components";
 import QRGenerator from "../components/QRGenerator";

@@ -1,21 +1,13 @@
-import {SplashPage} from "./pages/SplashPage";
+
+import {
+    SplashPage, PeopleNumPage, PrintNumPage,
+    SelectNumPage, SelectPayment, PaymentCardPage,
+    PaymentCashPage, ChooseARPage, GetQRPage,
+    SelectAR, TakeAPhotoPage, FirstResult,
+    ReResult, SelectFrame, SelectFilter, Finish
+} from "./pages";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
-import PeopleNumPage from "./pages/PeopleNumPage";
-import PrintNumPage from "./pages/PrintNumPage";
-import SelectNumPage from "./pages/SelectNumPage";
-import {SelectPayment} from "./pages/SelectPayment";
-import PaymentCardPage from "./pages/PaymentCardPage";
-import PaymentCashPage from "./pages/PaymentCashPage";
-import {SelectAR} from "./pages/SelectAR";
-import {GetQRPage} from "./pages/GetQRPage";
-import {ChooseARPage} from "./pages/ChooseARPage";
-import {TakeAPhotoPage} from "./pages/TakeAPhotoPage";
-import FirstResult from "./pages/FirstResult";
-import ReResult from "./pages/ReResult";
 import "./assets/font/font.css"
-import {SelectFrame} from "./pages/SelectFrame";
-import {SelectFilter} from "./pages/SelectFilter";
-import {Finish} from "./pages/Finish";
 
 function App(){
   return (

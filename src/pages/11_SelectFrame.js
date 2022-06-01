@@ -1,5 +1,5 @@
 import BaseElement from "../components/BaseElement";
-import {ChildrenTitle, SelectCheck} from "./PeopleNumPage";
+import {ChildrenTitle, SelectCheck} from "./1_PeopleNumPage";
 import styled from "styled-components";
 import {useLocation, useNavigate} from "react-router-dom";
 import {Frame34} from "../components/Layout/Frame34";

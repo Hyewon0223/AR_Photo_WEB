@@ -1,4 +1,4 @@
-import {ChildrenSubTitle, ChildrenTitle} from "./PeopleNumPage";
+import {ChildrenSubTitle, ChildrenTitle} from "./1_PeopleNumPage";
 import {useNavigate} from "react-router-dom";
 import BaseElement from "../components/BaseElement";
 import styled from "styled-components";

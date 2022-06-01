@@ -1,11 +1,11 @@
 import {useLocation, useNavigate} from "react-router-dom";
 import BaseElement from "../components/BaseElement";
-import {ChildrenSubTitle, ChildrenTitle, RelativeContainer} from "./PeopleNumPage";
+import {ChildrenSubTitle, ChildrenTitle, RelativeContainer} from "./1_PeopleNumPage";
 import styled from "styled-components";
 import {useEffect, useState} from "react";
 import {Frame34} from "../components/Layout/Frame34";
 
-export const FirstResult = () => {
+export const ReResult = () => {
     const navigate = useNavigate();
     const location = useLocation();
     const [select, setSelect] = useState([]);
@@ -57,7 +57,7 @@ export const FirstResult = () => {
     </>
 }
 
-export default FirstResult;
+export default ReResult;
 
 const Container = styled.div`
   display: flex;
