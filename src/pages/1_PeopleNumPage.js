@@ -11,6 +11,7 @@ export const PeopleNumPage = () => {
 
     const onBoxClick = (num) => {
         setSelectNum(num);
+        localStorage.setItem('people',num);
         setTimeout(function () {
             navigate("/NumOfPrintPhoto");
         }, 500);

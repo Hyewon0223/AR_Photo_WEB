@@ -8,14 +8,16 @@ import PhotoBubble from "../assets/PHOTOBUBBLE.png";
 
 export const TakeAPhotoPage = () => {
     const location = useLocation();
-    const photoSec = 5;
     const navigate = useNavigate();
     const camera = useRef(null);
     const [image, setImage] = useState([]);
+    const totalCnt = localStorage.getItem('layout1');
     const [cnt, setCnt] = useState(1);
+    const photoSec = 5;
     const [sec, setSec] = useState(photoSec);
     const photoTime = useRef(photoSec);
     const photoTimerID = useRef(null);
+
     useEffect(() => {
         if (location.state != null) setImage(location.state);
         photoTimerID.current = setInterval(() => {
@@ -32,12 +34,12 @@ export const TakeAPhotoPage = () => {
         if (photoTime.current <= 0) {
             setImage([...image,camera.current.takePhoto()]);
             setCnt(cnt + 1);
-            if (cnt < 4) {
+            if (cnt < totalCnt) {
                 photoTime.current = photoSec;
                 setSec(photoSec);
             }
             else {
-                if (image.length <= 4) {
+                if (image.length <= totalCnt) {
                     navigate('/result', {state: [...image, camera.current.takePhoto()]});
                 }
                 else {
@@ -45,7 +47,7 @@ export const TakeAPhotoPage = () => {
                 }
             }
         }
-    }, [sec, cnt, image, navigate]);
+    }, [sec, cnt, image, navigate, totalCnt]);
 
     return <Container>
         <Header>
@@ -56,7 +58,7 @@ export const TakeAPhotoPage = () => {
             <CameraWrapper>
                 <Camera ref={camera} aspectRatio={4/5} errorMessages="error"/>
             </CameraWrapper>
-            <ShowCnt>4컷중 {cnt}번째</ShowCnt>
+            <ShowCnt>{totalCnt}컷중 {cnt}번째</ShowCnt>
         </CameraContainer>
     </Container>
 }

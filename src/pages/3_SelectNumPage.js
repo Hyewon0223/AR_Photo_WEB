@@ -1,8 +1,8 @@
+import styled from "styled-components";
 import BaseElement from "../components/BaseElement";
 import {ChildrenSubTitle, ChildrenTitle} from "./1_PeopleNumPage";
 import {useState} from "react";
 import {useNavigate} from "react-router-dom";
-import styled from "styled-components";
 import check from '../assets/Check.png';
 
 export const SelectNumPage = () => {
@@ -12,6 +12,8 @@ export const SelectNumPage = () => {
 
     const onLayoutClick = (num) => {
         setSelectLayout(num);
+        localStorage.setItem('layout1',selectNum);
+        localStorage.setItem('layout2',selectLayout);
         setTimeout(function () {
             navigate("/SelectPayment");
         }, 500);

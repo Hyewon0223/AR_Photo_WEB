@@ -11,6 +11,7 @@ export const PrintNumPage = () => {
 
     const onBoxClick = (num) => {
         setSelectNum(num);
+        localStorage.setItem('print',num);
         setTimeout(function () {
             navigate("/NumOfSelectPhoto");
         }, 500);

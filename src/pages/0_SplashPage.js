@@ -2,9 +2,13 @@ import styled from "styled-components";
 import {useNavigate} from "react-router-dom";
 import SplashImg from '../assets/SplashBackground.png';
 import PhotoBubble from '../assets/PHOTOBUBBLE.png';
+import {useEffect} from "react";
 
 export const SplashPage = () => {
     const navigate = useNavigate();
+    useEffect(()=>{
+        localStorage.clear();
+    },[]);
 
     return <Container onClick={()=>navigate('/NumOfPeople')}>
         <BackgroundImg imgURL={SplashImg} />

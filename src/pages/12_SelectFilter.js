@@ -34,6 +34,8 @@ export const SelectFilter = () => {
     }
     const onBoxClick = (idx) => {
         setSelect(idx);
+        localStorage.setItem("filter1",category);
+        localStorage.setItem("filter2",detail);
         setTimeout(function () {
             navigate("/SelectFilter", {state: location.state});
         }, 500);
