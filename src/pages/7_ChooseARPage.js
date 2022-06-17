@@ -6,40 +6,40 @@ import styled from "styled-components";
 import {Category, CategoryContainer, SelectWrapper} from "./11_SelectFrame";
 import {SelectCheck} from "./1_PeopleNumPage";
 import check from "../assets/Check.png";
-import arPink from "../assets/ar_pink.png";
-import arPhotoBubble from "../assets/ar_photoBubble.png";
-import arEx from "../assets/ar_ex.png";
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
-import Slider from 'react-slick';
 import person from "../assets/Person.png";
 import personActive from "../assets/ActivePerson.png"
+import {Emoji1,Emoji2,Emoji3,Emoji4,Emoji5,Emoji6,Emoji7,Emoji8,Emoji9,Emoji10,Emoji11,Emoji12,Emoji13,Emoji14,Emoji15} from "../assets";
+import {Band1,Band2,Band3,Band4,Band5,Band6,Band7,Band8,Band9,Band10,Band11,Band12,Band13,Band14,Band15} from "../assets"
+import {Hair1,Hair2,Hair3,Hair4,Hair5,Hair6,Hair7,Hair8,Hair9,Hair10,Hair11} from "../assets"
+import {Glasses1,Glasses2,Glasses3,Glasses4} from "../assets";
 
 export const ChooseARPage = () => {
     const navigate = useNavigate();
     const camera = useRef(null);
     const [category, setCategory] = useState(0);
-    const [detail, setDetail] = useState([arPink,arPink,arPink,arPink,arPink,arPink]);
+    const [detail, setDetail] = useState([Emoji1,Emoji2,Emoji3,Emoji4,Emoji5,Emoji6,Emoji7,Emoji8,Emoji9,Emoji10,Emoji11,Emoji12,Emoji13,Emoji14,Emoji15]);
     const [select, setSelect] = useState();
     const [personActive, setPersonActive] = useState(0);
     const [...people] = [...Array(parseInt(localStorage.getItem('people'))).keys()];
-    const settings = {
-        slidesToShow: 5,
-        slidesToScroll: 1,
-        arrows: false,
-    };
+
     const data = [
         {
+            category: "이모지",
+            detail : [Emoji1,Emoji2,Emoji3,Emoji4,Emoji5,Emoji6,Emoji7,Emoji8,Emoji9,Emoji10,Emoji11,Emoji12,Emoji13,Emoji14,Emoji15]
+        },
+        {
             category: "머리띠",
-            detail : [arPink,arPink,arPink,arPink,arPink,arPink, arPink,arPink]
+            detail : [Band1,Band2,Band3,Band4,Band5,Band6,Band7,Band8,Band9,Band10,Band11,Band12,Band13,Band14,Band15]
+        },
+        {
+            category: "머리",
+            detail : [Hair1,Hair2,Hair3,Hair4,Hair5,Hair6,Hair7,Hair8,Hair9,Hair10,Hair11]
         },
         {
             category: "안경",
-            detail : [arPhotoBubble,arPhotoBubble,arPhotoBubble]
-        },
-        {
-            category: "이모지",
-            detail : [arEx, arEx, arEx,arEx,arEx,arEx,arEx]
+            detail : [Glasses1,Glasses2,Glasses3,Glasses4]
         },
     ]
     const onCategoryClick = (idx, detail) => {
@@ -88,17 +88,6 @@ export const ChooseARPage = () => {
                         </ARBox>
                     })}
                 </ARContainer>
-                {/*<StyledSlider {...settings}>*/}
-                {/*    {detail.map((img,idx)=>{*/}
-                {/*        return <ARBox onClick={()=>onBoxClick(idx)} isActive={select===idx}>*/}
-                {/*            <BackImg imgUrl={img}/>*/}
-                {/*            {select===idx ?*/}
-                {/*                <SelectCheck src={check}/>*/}
-                {/*                : null*/}
-                {/*            }*/}
-                {/*        </ARBox>*/}
-                {/*    })}*/}
-                {/*</StyledSlider>*/}
             </SelectWrapper>
         </BaseElement>
     );
