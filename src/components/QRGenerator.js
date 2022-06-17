@@ -1,29 +1,15 @@
 import QRcode from 'qrcode.react'
 import {useState} from "react";
-import {useLocation} from "react-router-dom";
 import styled from "styled-components";
 
-function QRGenerator() {
-    const [qr, setQr] = useState("zzzz");
-
-    const downloadQR = () => {
-        const canvas = document.getElementById("myqr");
-        const pngUrl = canvas
-            .toDataURL("image/png")
-            .replace("image/png", "image/octet-stream");
-        let downloadLink = document.createElement("a");
-        downloadLink.href = pngUrl;
-        downloadLink.download = "myqr.png";
-        document.body.appendChild(downloadLink);
-        downloadLink.click();
-        document.body.removeChild(downloadLink);
-    };
+function QRGenerator({info}) {
+    const [qr, setQr] = useState('qrInfo');
+    console.log("info",info);
 
     return <Container>
         {
             qr ?
                 <QRcode
-                    id="myqr"
                     value={qr}
                     size={300}
                 /> :

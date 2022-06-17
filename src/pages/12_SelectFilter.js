@@ -1,11 +1,11 @@
 import BaseElement from "../components/BaseElement";
 import {ChildrenSubTitle, ChildrenTitle, SelectCheck} from "./1_PeopleNumPage";
-import {Frame34} from "../components/Layout/Frame34";
 import check from "../assets/Check.png";
 import {useLocation, useNavigate} from "react-router-dom";
 import styled from "styled-components";
 import {useState} from "react";
 import {Category, CategoryContainer, DetailBox, DetailContainer, SelectWrapper} from "./11_SelectFrame";
+import {Frame41} from "../components/Layout/Frame41";
 
 export const SelectFilter = () => {
     const location = useLocation();
@@ -45,7 +45,7 @@ export const SelectFilter = () => {
         <ChildrenTitle>사진의 필터를 골라주세요</ChildrenTitle>
         <ChildrenSubTitle/>
         <Container>
-            <Frame34 cnt={3} imgArray={localStorage.getItem('selectIdx').split(',')}/>
+            <Frame41 className='frame' backgroundImg={localStorage.getItem('frame2')} cnt={4} imgArray={localStorage.getItem('selectIdx').split(',')}/>
             <SelectWrapper>
                 <CategoryContainer mb="93px">
                     {data.map((data,idx)=>{
