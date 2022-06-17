@@ -4,16 +4,53 @@ import {ChildrenSubTitle, ChildrenTitle} from "./1_PeopleNumPage";
 import {useState} from "react";
 import {useNavigate} from "react-router-dom";
 import check from '../assets/Check.png';
+import frame1_1 from '../assets/frame1_1.png';
+import frame2_1 from '../assets/frame2_1.png';
+import frame2_2 from '../assets/frame2_2.png';
+import frame2_3 from '../assets/frame2_3.png';
+import frame4_1 from '../assets/frame4_1.png';
+import frame6_1 from '../assets/frame6_1.png';
+import frame6_2 from '../assets/frame6_2.png';
+import frame6_3 from '../assets/frame6_3.png';
+import frame8_1 from '../assets/frame8_1.png';
 
 export const SelectNumPage = () => {
-    const [selectNum, setSelectNum] = useState(3);
+    const [selectNum, setSelectNum] = useState(4);
+    const [detail, setDetail] = useState([frame4_1]);
     const [selectLayout, setSelectLayout] = useState();
     const navigate = useNavigate();
+    const data = [
+        {
+            category: 1,
+            detail : [frame1_1]
+        },
+        {
+            category: 2,
+            detail : [frame2_1, frame2_2, frame2_3]
+        },
+        {
+            category: 4,
+            detail : [frame4_1]
+        },
+        {
+            category: 6,
+            detail : [frame6_1, frame6_2, frame6_3]
+        },
+        {
+            category: 8,
+            detail : [frame8_1]
+        },
+    ]
+
+    const onCategoryClick = (category, detail) => {
+        setSelectNum(category)
+        setDetail(detail)
+    }
 
     const onLayoutClick = (num) => {
         setSelectLayout(num);
         localStorage.setItem('layout1',selectNum);
-        localStorage.setItem('layout2',selectLayout);
+        localStorage.setItem('layout2',num);
         setTimeout(function () {
             navigate("/SelectPayment");
         }, 500);
@@ -24,15 +61,15 @@ export const SelectNumPage = () => {
             <ChildrenTitle mt="57px">어떻게 사진을 구성할까요?</ChildrenTitle>
             <ChildrenSubTitle/>
             <SelectWrap>
-                {[1,2,3,4,6,8].map((num)=>{
-                    return <Select key={`selectNumPrint-${num}`} isSelect={selectNum===num} onClick={()=>setSelectNum(num)}>{num}컷</Select>
+                {data.map((data)=>{
+                    return <Select key={`selectNumPrint-${data.category}`} isSelect={selectNum===data.category} onClick={()=>onCategoryClick(data.category, data.detail)}>{data.category}컷</Select>
                 })}
             </SelectWrap>
             <SelectLayoutWrap>
-                {[1,2,3,4].map((num)=>{
-                    return <LayoutContainer key={`selectLayout-${num}`} >
-                        <Layout isLayout={selectLayout===num} onClick={()=>onLayoutClick(num)}/>
-                        {selectLayout === num ?
+                {detail.map((data,idx)=>{
+                    return <LayoutContainer key={`selectLayout-${data}`} >
+                        <Layout imgUrl={data} isLayout={selectLayout===data} onClick={()=>onLayoutClick(idx)}/>
+                        {selectLayout === data ?
                             <SelectLayout>
                                 <CheckImg src={check}/>
                             </SelectLayout>
@@ -80,7 +117,7 @@ const LayoutContainer = styled.div`
 const Layout = styled.div`
   width: 224px;
   height: 338px;
-  background: #C3D2EF;
+  background: url(${props=>props.imgUrl}) no-repeat center;
   border-radius: 12px;
 `
 const SelectLayout = styled.div`
