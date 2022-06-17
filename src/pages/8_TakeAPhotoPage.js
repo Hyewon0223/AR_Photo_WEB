@@ -56,7 +56,7 @@ export const TakeAPhotoPage = () => {
         </Header>
         <CameraContainer>
             <CameraWrapper>
-                <Camera ref={camera} aspectRatio={4/5} errorMessages="error"/>
+                <Camera ref={camera} aspectRatio={6/3} errorMessages="error"/>
             </CameraWrapper>
             <ShowCnt>{totalCnt}컷중 {cnt}번째</ShowCnt>
         </CameraContainer>
@@ -67,7 +67,6 @@ const Container = styled.div`
   height: calc( 100vh - 80px );
 `
 const CameraContainer = styled.div`
-  //margin: auto;
   height: 100%;
   display: flex;
   flex-direction: column;
@@ -76,7 +75,7 @@ const CameraContainer = styled.div`
 `
 const CameraWrapper = styled.div`
   //margin: auto auto 25px;
-  width: 30%;
+  width: 100%;
   max-height: 90vh;
   margin: auto;
 `

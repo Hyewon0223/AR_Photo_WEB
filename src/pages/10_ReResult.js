@@ -3,7 +3,7 @@ import BaseElement from "../components/BaseElement";
 import {ChildrenSubTitle, ChildrenTitle, RelativeContainer} from "./1_PeopleNumPage";
 import styled from "styled-components";
 import {useEffect, useState} from "react";
-import {Frame34} from "../components/Layout/Frame34";
+import {Frame41} from "../components/Layout/Frame41";
 
 export const ReResult = () => {
     const navigate = useNavigate();
@@ -28,7 +28,7 @@ export const ReResult = () => {
 
     const onNextClick = () => {
         console.log(select);
-        if (select.length === 3){
+        if (select.length === 4){
             localStorage.setItem("selectIdx",select);
             navigate('/SelectFrame', {state: location.state});
         }
@@ -39,7 +39,7 @@ export const ReResult = () => {
             <ChildrenTitle mt="57px">출력할 사진을 선택하세요</ChildrenTitle>
             <ChildrenSubTitle/>
             <Container>
-                <Frame34 cnt={3} imgArray={select}/>
+                <Frame41 cnt={4} imgArray={select}/>
                 <Wrapper>
                     {location.state.map((imgUrl, idx)=>{
                         return <RelativeContainer>
@@ -76,10 +76,10 @@ const Wrapper = styled.div`
 `
 const ResultImg = styled.div`
   width: 100%;
-  padding-top: 120%;
+  padding-top: 100%;
   border-radius: 24px;
+  background: url(${props=>props.imgSrc}) no-repeat center;
   background-size: cover;
-  background-image: url(${props=>props.imgSrc});
   cursor: pointer;
 `
 const SelectImg = styled.div`

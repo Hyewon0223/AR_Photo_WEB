@@ -22,6 +22,7 @@ export const ChooseARPage = () => {
     const [detail, setDetail] = useState([arPink,arPink,arPink,arPink,arPink,arPink]);
     const [select, setSelect] = useState();
     const [personActive, setPersonActive] = useState(0);
+    const [...people] = [...Array(parseInt(localStorage.getItem('people'))).keys()];
     const settings = {
         slidesToShow: 5,
         slidesToScroll: 1,
@@ -48,7 +49,7 @@ export const ChooseARPage = () => {
     const onBoxClick = (idx) => {
         setSelect(idx);
         localStorage.setItem("arCategory",category);
-        localStorage.setItem("arDetail",detail);
+        localStorage.setItem("arDetail",idx);
         setTimeout(function () {
             // navigate("/SelectFilter", {state: location.state});
         }, 500);
@@ -63,7 +64,7 @@ export const ChooseARPage = () => {
                     <MainText>누구에게 소품을 입힐까요?</MainText>
                     <SubText>서있는 순서대로 소품이 적용됩니다.</SubText>
                     <PersonWrapper>
-                        {[0,1,2].map((active, idx)=>{
+                        {people.map((active, idx)=>{
                             return <Person isActive={personActive===idx} onClick={()=>setPersonActive(idx)}>{idx}</Person>
                         })}
                     </PersonWrapper>
@@ -181,14 +182,6 @@ const ARBox = styled.div`
   width: 150px;
   height: 150px;
 `
-const StyledSlider = styled(Slider)`
-  .slider .slick-list {
-    margin:0 -20px;
-  }
-  .slick-slide {
-    margin:0 10px;
-  }
-`;
 const BackImg = styled.div`
   position: relative;
   border-radius: 32px;

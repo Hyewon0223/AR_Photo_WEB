@@ -7,7 +7,11 @@ import BaseButton from "../components/BaseButton";
 export const FirstResult = () => {
     const location = useLocation();
     const navigate = useNavigate();
-    console.log(location);
+
+    const onNextClick = () => {
+        localStorage.setItem("selectIdx",[0,1,2,3]);
+        navigate('/SelectFrame', {state:location.state})
+    }
     return <>
         <BaseElement>
             <ChildrenTitle mt="57px">촬영 결과를 확인해주세요</ChildrenTitle>
@@ -19,7 +23,7 @@ export const FirstResult = () => {
             </Wrapper>
             <ButtonContainer>
                 <BaseButton font name="한 번 다시 촬영 하기" onClick={()=>navigate('/Camera', {state:location.state})}/>
-                <BaseButton font dark name="프레임 선택하러 가기" onClick={()=>console.log("프레임 선택")}/>
+                <BaseButton font dark name="프레임 선택하러 가기" onClick={()=>onNextClick()}/>
             </ButtonContainer>
         </BaseElement>
     </>
@@ -39,8 +43,8 @@ const ResultImg = styled.div`
   width: 100%;
   padding-top: 30%;
   border-radius: 24px;
+  background: url(${props=>props.imgSrc}) no-repeat center;
   background-size: cover;
-  background-image: url(${props=>props.imgSrc});
 `
 const ButtonContainer = styled.div`
   display: flex;
