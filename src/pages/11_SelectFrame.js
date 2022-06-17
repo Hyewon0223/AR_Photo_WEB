@@ -51,10 +51,11 @@ export const SelectFrame = () => {
         setCategory(idx);
         setDetail(detail)
     }
-    const onBoxClick = (data) => {
+    const onBoxClick = (data, idx) => {
         setSelect(data);
         localStorage.setItem("frame1",category);
         localStorage.setItem("frame2",data);
+        localStorage.setItem("frame_idx", `${category}-${idx}`);
     }
     const onNextClick = () => {
         setTimeout(function () {
@@ -73,8 +74,8 @@ export const SelectFrame = () => {
                 </CategoryContainer>
 
                 <DetailContainer>
-                    {detail.map((data)=>{
-                        return <DetailBox imgUrl={data} onClick={()=>onBoxClick(data)} isActive={select===data}>
+                    {detail.map((data, idx)=>{
+                        return <DetailBox imgUrl={data} onClick={()=>onBoxClick(data,idx)} isActive={select===data}>
                             {select===data ?
                                 <SelectCheck isActive={select===data} src={check}/>
                                 : null
@@ -134,12 +135,10 @@ export const DetailContainer = styled.div`
 `
 export const DetailBox = styled.div`
   position: relative;
-  background: ${props=>props.isActive? 'rgba(119, 152, 201, 0.78)' : "linear-gradient(196.1deg, rgba(255, 255, 255, 0.61) -15.99%, rgba(255, 255, 255, 0.352657) 101.75%, rgba(255, 255, 255, 0) 142.09%), linear-gradient(80.77deg, #FBFBFD 27.85%, rgba(251, 251, 253, 0) 91.1%)"};
   border: 5px solid ${props=>props.isActive?"#678AC0":"#FFFFFF"};
   border-radius: 32px;
   width: 175px;
   height: 265px;
-  //padding-top: 100%;
   font-family: 'ONE Mobile POP', sans-serif;
   font-weight: 400;
   font-size: 32px;

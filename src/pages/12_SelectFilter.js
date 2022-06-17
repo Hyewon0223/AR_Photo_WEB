@@ -21,7 +21,7 @@ export const SelectFilter = () => {
         },
         {
             category: "흑백",
-            detail : ["흑백1","흑백2","흑백3"]
+            detail : ["흑백1","흑백2","흑백3","흑백1","흑백2","흑백3"]
         },
         {
             category: "어쩌구",
@@ -55,13 +55,13 @@ export const SelectFilter = () => {
 
                 <DetailContainer>
                     {detail.map((data, idx)=>{
-                        return <DetailBox onClick={()=>onBoxClick(idx)} isActive={select===idx}>
+                        return <FilterBox onClick={()=>onBoxClick(idx)} isActive={select===idx}>
                             {data}
                             {select===idx ?
                                 <SelectCheck src={check}/>
                                 : null
                             }
-                        </DetailBox>
+                        </FilterBox>
                     })}
                 </DetailContainer>
             </SelectWrapper>
@@ -77,4 +77,7 @@ const Container = styled.div`
   gap: 140px;
   height: 70%;
 `
-
+const FilterBox = styled(DetailBox)`
+  background: ${props=>props.isActive? "rgba(119, 152, 201, 0.78)" : "linear-gradient(196.1deg, rgba(255, 255, 255, 0.61) -15.99%, rgba(255, 255, 255, 0.352657) 101.75%, rgba(255, 255, 255, 0) 142.09%), linear-gradient(80.77deg, #FBFBFD 27.85%, rgba(251, 251, 253, 0) 91.1%)"};
+  height: 160px;
+`

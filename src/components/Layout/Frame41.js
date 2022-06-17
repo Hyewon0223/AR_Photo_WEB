@@ -1,5 +1,7 @@
 import styled from "styled-components";
 import {useLocation} from "react-router-dom";
+import summer2_plus from "../../assets/frameBackground/summer2_.png"
+import summer3_plus from "../../assets/frameBackground/summer3_.png"
 
 export const Frame41 = ({backgroundImg, cnt, imgArray}) => {
     const location = useLocation();
@@ -13,15 +15,29 @@ export const Frame41 = ({backgroundImg, cnt, imgArray}) => {
                 </ImgContainer>
             })}
         </Layout>
+        {localStorage.getItem('frame_idx')==='3-1' && <FrontImg imgUrl={summer2_plus}/>}
+        {localStorage.getItem('frame_idx')==='3-2' && <FrontImg imgUrl={summer3_plus}/>}
     </Frame>
 }
 
+const FrontImg = styled.div`
+  position: absolute;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background: url(${props=>props.imgUrl}) no-repeat;
+  background-size : cover;
+  border-radius: 12px;
+  z-index: 10;
+`
 const Frame = styled.div`
+  position: relative;
   width: 350px;
   height: 530px;
   background: url(${props=>props.imgUrl}) no-repeat #C3D2EF;
   background-size : cover;
   border-radius: 12px;
+  margin: auto;
 `
 const Layout = styled.div`
   margin: 0 10px;

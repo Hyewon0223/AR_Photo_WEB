@@ -13,17 +13,13 @@ export const Finish = () => {
         domtoimage
             .toBlob(document.querySelector('.frame'))
             .then((blob) => {
-                saveAs(blob, 'bubblePhoto.png')
+                saveAs(blob, 'PhotoBubble.png')
             });
-
-
     };
-
     useEffect(()=>{
         domtoimage.toPng(document.querySelector('.frame'))
             .then(function(dataUrl) {
                 setQRInfo(dataUrl)
-                console.log(dataUrl);
         })
         onDownloadBtn()
     },[])
