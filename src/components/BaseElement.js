@@ -38,7 +38,7 @@ export const BaseElement = ({isTimer, onBackClick, etc, onEtcClick, children, is
     return <Container>
         <Header>
             <Logo imgURL={PhotoBubble}/>
-            {isTimer && <BaseButton font name={`남은 시간 ${min}:${sec}`}></BaseButton>}
+            {isTimer && <BaseButton font name={`남은 시간 ${min}:${sec}`}/>}
         </Header>
         <Wrapper isExist={onBackClick || etc || isCheck}>
             {children}

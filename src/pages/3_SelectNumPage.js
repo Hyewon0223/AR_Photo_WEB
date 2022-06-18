@@ -89,6 +89,9 @@ const SelectWrap = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
+  @media only screen and (max-width: 1224px){
+    margin-top: 10px;
+  }
 `
 const Select = styled.div`
   cursor: pointer;
@@ -110,6 +113,9 @@ const SelectLayoutWrap = styled.div`
   justify-content: center;
   align-items: center;
   gap: 74px;
+  @media only screen and (max-width: 1224px){
+    margin-top: 50px;
+  }
 `
 const LayoutContainer = styled.div`
   position: relative;

@@ -3,7 +3,7 @@ import styled from "styled-components";
 export const PaymentChoice = ({name, imgSrc, onClick}) => {
     return <Container onClick={onClick}>
         <ImgWrapper>
-            <img src={imgSrc}/>
+            <ImgContainer src={imgSrc}/>
         </ImgWrapper>
         <Text>{name}</Text>
     </Container>
@@ -15,11 +15,14 @@ const Container = styled.div`
   border-radius: 50px;
   width: 412px;
   height: 412px;
-  max-width: 474px;
   display: flex;
   flex-direction: column;
   cursor: pointer;
   margin: auto;
+  @media only screen and (max-width: 1224px){
+    width: 300px;
+    height: 300px;
+  }
 `
 const ImgWrapper = styled.div`
   margin: auto auto 0;
@@ -34,4 +37,12 @@ const Text = styled.div`
   color: #2C2C2C;
   white-space: pre-line;
   text-align: center;
+  @media only screen and (max-width: 1224px){
+    margin: 30px auto auto;
+  }
+`
+const ImgContainer = styled.img`
+  @media only screen and (max-width: 1224px){
+    width: 180px;
+  }
 `

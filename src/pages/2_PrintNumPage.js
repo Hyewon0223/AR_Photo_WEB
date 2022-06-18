@@ -23,9 +23,8 @@ export const PrintNumPage = () => {
             <ChildrenSubTitle>원하시는 출력장수를 선택해주세요.</ChildrenSubTitle>
             <SelectWrapper>
                 {[1,2,3,4,5].map((num)=> {
-                    return <RelativeContainer>
-                        <SelectBox key={`printNum-${num}`}
-                                   selectNum={selectNum} name={num} unit="장"
+                    return <RelativeContainer key={`printNum-${num}`}>
+                        <SelectBox selectNum={selectNum} name={num} unit="장"
                                    onClick={()=>onBoxClick(num)}/>
                         {selectNum === num ?
                             <SelectCheck src={check}/>

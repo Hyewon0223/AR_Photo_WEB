@@ -51,6 +51,11 @@ const MoneyBox = styled.div`
   line-height: 114px;
   color: #FFFFFF;
   cursor: pointer;
+  @media only screen and (max-width: 1224px){
+    width: 330px;
+    height: 170px;
+    font-size: 80px;
+  }
 `
 const Text = styled.div`
   font-family: 'ONE Mobile POP',sans-serif;
@@ -59,5 +64,7 @@ const Text = styled.div`
   font-size: 80px;
   line-height: 88px;
   color: #2C2C2C;
-
+  @media only screen and (max-width: 1224px){
+    font-size: 60px;
+  }
 `

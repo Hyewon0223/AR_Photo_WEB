@@ -3,7 +3,7 @@ import styled from "styled-components";
 export const ARChoice = ({name, imgSrc, onClick}) => {
     return <Container>
         <ImgWrapper onClick={onClick}>
-            <img src={imgSrc}/>
+            <ImgContainer src={imgSrc}/>
         </ImgWrapper>
         <Text>{name}</Text>
     </Container>
@@ -23,6 +23,15 @@ const ImgWrapper = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
+  @media only screen and (max-width: 1224px){
+    width: 280px;
+    height: 210px;
+  }
+`
+const ImgContainer = styled.img`
+  @media only screen and (max-width: 1224px){
+    width: 100px;
+  }
 `
 const Text = styled.div`
   margin: 28px auto auto;
@@ -34,4 +43,7 @@ const Text = styled.div`
   color: #2C2C2C;
   white-space: pre-line;
   text-align: center;
+  @media only screen and (max-width: 1224px){
+    font-size: 40px;
+  }
 `

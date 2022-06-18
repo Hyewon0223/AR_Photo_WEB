@@ -59,7 +59,7 @@ const MoneyBox = styled.div`
   width: 412px;
   height: 209px;
   background: ${props=>props.isWhite? "linear-gradient(196.1deg, rgba(255, 255, 255, 0.61) -15.99%, rgba(255, 255, 255, 0.352657) 101.75%, rgba(255, 255, 255, 0) 142.09%), linear-gradient(80.77deg, #FBFBFD 27.85%, rgba(251, 251, 253, 0) 91.1%)": "#7798C9"};
-  border: 5px solid ${props=>props.isWhite?"#FFFFFF":"#7798C9"};
+  border: 5px solid ${props=>props.isWhite?"#FFFFFF":"#678AC0"};
   border-radius: 28px;
   font-family: 'ONE Mobile POP', sans-serif;
   font-weight: 400;
@@ -67,6 +67,11 @@ const MoneyBox = styled.div`
   line-height: 114px;
   color: ${props=>props.isWhite? "#7798C9": "#ffffff"};
   cursor: pointer;
+  @media only screen and (max-width: 1224px){
+    width: 280px;
+    height: 150px;
+    font-size: 70px;
+  }
 `
 const Text = styled.div`
   font-family: 'ONE Mobile POP', sans-serif;
@@ -74,5 +79,7 @@ const Text = styled.div`
   font-size: 60px;
   line-height: 66px;
   color: #000000;
-
+  @media only screen and (max-width: 1224px){
+    font-size: 50px;
+  }
 `

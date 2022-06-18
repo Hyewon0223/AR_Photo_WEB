@@ -22,9 +22,9 @@ export const PeopleNumPage = () => {
             <ChildrenTitle>몇명이서 찍을까요?</ChildrenTitle>
             <ChildrenSubTitle/>
             <SelectWrapper>
-                {[null,1,2,3,null].map((num)=> {
-                    return <RelativeContainer>
-                        <SelectBox key={`peopleNum-${num}`} visible={!num}
+                {[null,1,2,3,null].map((num,idx)=> {
+                    return <RelativeContainer key={`peopleNum-${idx}`}>
+                        <SelectBox visible={!num}
                                    selectNum={selectNum} name={num} unit="명"
                                    onClick={()=>onBoxClick(num)}/>
                         {selectNum === num ?
